@@ -1,5 +1,11 @@
+var pplArrayT = [];
+for (var k in optionsArray) {
+    var pos = parseInt(k) + 1;
+    pplArrayT.push(pos.toString());
+}
+
 $(document).ready(function(){
    $('.canvas').spinwheel({
-       pplArray : ["1", "2", "3", "4","5", "6", "7", "8", "9","10","11","12"]
+       pplArray : pplArrayT
    });
 });

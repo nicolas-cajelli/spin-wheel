@@ -102,14 +102,16 @@
                 ctx.save();
                 ctx.font = params.resultTextFont;
                 var text = pplArray[index];
-                if (text == "12") {
+
+                var elementId = "#opt-" + text;
+                var listElement = $(elementId);
+                if (listElement.hasClass("invalid")) {
                     methods.spin();
                     return;
                 } else {
-                    text = $("#opt-" + text).text();
+                    text = listElement.text();
                 }
                 $(params.winnerDiv).html(text).show();
-                //ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
                 ctx.restore();
             }         
         

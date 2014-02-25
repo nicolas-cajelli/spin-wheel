@@ -18,19 +18,7 @@ and open the template in the editor.
                 <form class="iform" action="#" method="get">
                     <button class="spin-trigger">Spin</button>
                 </form>        
-            <ol>
-                <li id="opt-1">Chupala</li>
-                <li id="opt-2">No esta especificado</li>
-                <li id="opt-3">No esta en el Q</li>
-                <li id="opt-4">No lo vamos a hacer</li>
-                <li id="opt-5">Habla con mummy</li>
-                <li id="opt-6">Falta especificacion</li>
-                <li id="opt-7">Es tecnologicamente imposible</li>
-                <li id="opt-8">Ya esta hecho</li>
-                <li id="opt-9">Lo pueden hacer los mercados</li>
-                <li id="opt-10">Se atrasa posting</li>
-                <li id="opt-11">Se atrasa myolx</li>
-                <li id="opt-12">Lo haremos....</li>
+            <ol id="texts-container">
             </ol>
                 <canvas class="canvas" width="500" height="500"></canvas> 
             </div>
@@ -46,6 +34,37 @@ and open the template in the editor.
        
         <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js'></script>
         <script src='js/jquery.spinwheel.js'></script>
+        <script type="text/javascript">
+            var optionsArray = [
+                "Chupala", 
+                "No esta especificado", 
+                "No esta en el Q", 
+                "No lo vamos a hacer", 
+                "Habla con mummy", 
+                "Falta especificacion", 
+                "Es tecnologicamente imposible", 
+                "Ya esta hecho", 
+                "Lo pueden hacer los mercados", 
+                "Se atrasa posting", 
+                "Se atrasa myolx", 
+                "Lo haremos...."
+            ];
+            var textsContainer = $('#texts-container');
+            for (var i in optionsArray) {
+                var pos = parseInt(i) + 1;
+                var text = optionsArray[i];
+                var invalid = false;
+                if (text == "Lo haremos....") {
+                    invalid = true;
+                }
+
+                var listElement = $("<li></li>").attr("id", "opt-" + pos).text(text);
+                if (invalid) {
+                    listElement.addClass("invalid");
+                }
+                textsContainer.append(listElement);
+            }
+        </script>
         <script src='js/example.js'></script>
     </body>
 </html>
