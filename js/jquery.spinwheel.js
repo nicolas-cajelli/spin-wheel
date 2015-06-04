@@ -12,7 +12,7 @@
     $.fn.spinwheel = function(options, callback){
         
         var params = $.extend({},$.fn.spinwheel.default_options, options), $that = $(this), ctx = null, colorCache = [],
-        startAngle = 0, arc = Math.PI / 6, spinTimeout = null, spinArcStart = 10, spinTime = 0, spinTimeTotal = 0, spinAngleStart = 0, pplLength = 12, pplArray = params.pplArray;
+        startAngle = 0, arc = Math.PI / (params.pplArray.length / 2), spinTimeout = null, spinArcStart = 10, spinTime = 0, spinTimeTotal = 0, spinAngleStart = 0, pplLength = params.pplArray.length, pplArray = params.pplArray;
 
         if($.isFunction(options)){
             callback = options;
@@ -101,17 +101,7 @@
                 var index = Math.floor((360 - degrees % 360) / arcd);
                 ctx.save();
                 ctx.font = params.resultTextFont;
-                var text = pplArray[index];
 
-                var elementId = "#opt-" + text;
-                var listElement = $(elementId);
-                if (listElement.hasClass("invalid")) {
-                    methods.spin();
-                    return;
-                } else {
-                    text = listElement.text();
-                }
-                $(params.winnerDiv).html(text).show();
                 ctx.restore();
             }         
         
@@ -137,6 +127,7 @@
             var text = null, i = 0, totalJoiner = pplLength;
             for(i = 0; i < totalJoiner; i++) {
                 text = pplArray[i];           
+                console.log(pplArray);
                 var angle = startAngle + i * arc;                
                 ctx.fillStyle = colorCache.length > totalJoiner ? colorCache[i] : genHex();
                 
@@ -148,10 +139,6 @@
                 ctx.fill();
         
                 ctx.save();
-                ctx.shadowOffsetX = -1;
-                ctx.shadowOffsetY = -1;
-                ctx.shadowBlur    = 1;
-                ctx.shadowColor   = params.wheelTextShadowColor;
                 ctx.fillStyle = params.wheelTextColor;
                 ctx.translate(250 + Math.cos(angle + arc / 2) * params.textRadius, 250 + Math.sin(angle + arc / 2) * params.textRadius);
                 ctx.rotate(angle + arc / 2 + Math.PI / 2);

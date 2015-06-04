@@ -8,62 +8,24 @@ and open the template in the editor.
         <meta charset='utf-8' />
         <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible' />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/main.css" media="all" rel="stylesheet"></link>
-        <link href='http://fonts.googleapis.com/css?family=Carter+One' rel='stylesheet' type='text/css' />
         <!--[if IE]><script type="text/javascript" src="js/excanvas.js"></script><![endif]-->
     </head>
     <body>
-        <div id="main">
-            <div id="left-column">
-                <form class="iform" action="#" method="get">
-                    <button class="spin-trigger">Spin</button>
-                </form>        
-            <ol id="texts-container">
-            </ol>
-                <canvas class="canvas" width="500" height="500"></canvas> 
-            </div>
-            <div id="right-column">
-                <p class="winner">The Winner is ... <span>&nbsp;</span></p>
-                <ul class="participants">
-                </ul>
-            </div>
-            <div style="clear:both"></div>
-            
-            
-        </div>
+        <canvas class="canvas spin-trigger" width="500" height="500" style="margin:auto; display:block;position:relative;"></canvas> 
        
         <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js'></script>
         <script src='js/jquery.spinwheel.js'></script>
         <script type="text/javascript">
             var optionsArray = [
-                "Chupala", 
-                "No esta especificado", 
-                "No esta en el Q", 
-                "No lo vamos a hacer", 
-                "Habla con mummy", 
-                "Falta especificacion", 
-                "Es tecnologicamente imposible", 
-                "Ya esta hecho", 
-                "Lo pueden hacer los mercados", 
-                "Se atrasa posting", 
-                "Se atrasa myolx", 
-                "Lo haremos...."
+                "Pasta",
+                "Pizza",
+                "Empanadas",
+                "Mexicana",
+                "Armenia",
+                "Sushi",
+                "Sandwich",
+                "Calzone"
             ];
-            var textsContainer = $('#texts-container');
-            for (var i in optionsArray) {
-                var pos = parseInt(i) + 1;
-                var text = optionsArray[i];
-                var invalid = false;
-                if (text == "Lo haremos....") {
-                    invalid = true;
-                }
-
-                var listElement = $("<li></li>").attr("id", "opt-" + pos).text(text);
-                if (invalid) {
-                    listElement.addClass("invalid");
-                }
-                textsContainer.append(listElement);
-            }
         </script>
         <script src='js/example.js'></script>
     </body>
