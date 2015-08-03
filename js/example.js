@@ -55,4 +55,10 @@ $(document).ready(function(){
 	} else {
 		askForOptions(startWheel);
 	}
+
+	$("#clear-options").click(function() {
+		$.localStorage.remove("options");
+		$(".canvas").addClass("hide");
+		askForOptions(startWheel);
+	});
 });
