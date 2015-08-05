@@ -16,6 +16,11 @@ and open the template in the editor.
 			position:fixed;
 			bottom:0px;
 		}
+		#options {
+			right:0;
+			top: 0;
+			position: fixed;
+		}
 		</style>
 		<!--[if IE]><script type="text/javascript" src="js/excanvas.js"></script><![endif]-->
 	</head>
@@ -25,8 +30,13 @@ and open the template in the editor.
 			<input type="text" id="option" value="" />
 			<input type="button" value="Add" id="add-option">
 			<input type="button" value="Start" id="start-wheel">
+		</div>
+		<div id="options">
+			<input type="button" value="Clear options" id="clear-options" />
+			<div id="options-template" class="hide option">
+				<span class="value"></span><a href="#">X</a>
 			</div>
-		<input type="button" value="Clar options" id="clear-options" />
+		</div>
 		<div id="footer">Open source tool, find the code <a href="https://github.com/nicolas-cajelli/spin-wheel">here</a></div>
 		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js'></script>
 		<script src='js/jquery.storageapi.min.js'></script>
