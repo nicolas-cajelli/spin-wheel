@@ -108,14 +108,14 @@
 		function drawArrow() {
 			ctx.fillStyle = params.arrowColor;
 			ctx.beginPath();
-			ctx.moveTo(250 - 4, 250 - (params.outterRadius + 15));
-			ctx.lineTo(250 + 4, 250 - (params.outterRadius + 15));
-			ctx.lineTo(250 + 4, 250 - (params.outterRadius - 15));
-			ctx.lineTo(250 + 9, 250 - (params.outterRadius - 15));
-			ctx.lineTo(250 + 0, 250 - (params.outterRadius - 23));
-			ctx.lineTo(250 - 9, 250 - (params.outterRadius - 15));
-			ctx.lineTo(250 - 4, 250 - (params.outterRadius - 15));
-			ctx.lineTo(250 - 4, 250 - (params.outterRadius + 15));
+			ctx.moveTo(100 - 4, 100 - (params.outterRadius + 15));
+			ctx.lineTo(100 + 4, 100 - (params.outterRadius + 15));
+			ctx.lineTo(100 + 4, 100 - (params.outterRadius - 15));
+			ctx.lineTo(100 + 9, 100 - (params.outterRadius - 15));
+			ctx.lineTo(100 + 0, 100 - (params.outterRadius - 23));
+			ctx.lineTo(100 - 9, 100 - (params.outterRadius - 15));
+			ctx.lineTo(100 - 4, 100 - (params.outterRadius - 15));
+			ctx.lineTo(100 - 4, 100 - (params.outterRadius + 15));
 			ctx.fill();
 		}
 
@@ -123,7 +123,7 @@
 			ctx.strokeStyle = params.wheelBorderColor;
 			ctx.lineWidth = params.wheelBorderWidth;
 			ctx.font = params.wheelTextFont;
-			ctx.clearRect(0,0,500,500);
+			ctx.clearRect(0,0,200,200);
 			var text = null, i = 0, totalJoiner = pplLength;
 			for(i = 0; i < totalJoiner; i++) {
 				text = pplArray[i];           
@@ -132,14 +132,14 @@
 
 				ctx.beginPath();
 				// ** arc(centerX, centerY, radius, startingAngle, endingAngle, antiClockwise);
-				ctx.arc(250, 250, params.outterRadius, angle, angle + arc, false);
-				ctx.arc(250, 250, params.innerRadius, angle + arc, angle, true);
+				ctx.arc(100, 100, params.outterRadius, angle, angle + arc, false);
+				ctx.arc(100, 100, params.innerRadius, angle + arc, angle, true);
 				ctx.stroke();
 				ctx.fill();
 
 				ctx.save();
 				ctx.fillStyle = params.wheelTextColor;
-				ctx.translate(250 + Math.cos(angle + arc / 2) * params.textRadius, 250 + Math.sin(angle + arc / 2) * params.textRadius);
+				ctx.translate(100 + Math.cos(angle + arc / 2) * params.textRadius, 100 + Math.sin(angle + arc / 2) * params.textRadius);
 				ctx.rotate(angle + arc / 2 + Math.PI / 2);
 
 				ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
@@ -176,7 +176,7 @@
 	 *  winDiv : the element you want to display the winner
 	 */
 	$.fn.spinwheel.default_options = {
-		outterRadius:200, innerRadius:3, textRadius: 160, spinTrigger: '.spin-trigger',
+		outterRadius:80, innerRadius:3, textRadius: 60, spinTrigger: '.spin-trigger',
 		wheelBorderColor: 'black',wheelBorderWidth : 3, wheelTextFont : 'bold 15px sans-serif', wheelTextColor: 'black', wheelTextShadowColor : 'rgb(220,220,220)',
 		resultTextFont : 'bold 30px sans-serif', arrowColor :'black', paricipants:'.participants', addPplTrigger:'.add', joiner:'.joiner', winnerDiv:'.winner'
 	}
