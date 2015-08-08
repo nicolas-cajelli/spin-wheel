@@ -2,11 +2,11 @@
 var resize = function() {
 
    var size;
-
+   
    if (window.innerWidth > window.innerHeight) {
-	   size = window.innerHeight;
+	   size = '300px';//window.innerHeight;
 	} else {
-		size = window.innerWidth;
+		size = '300px';//window.innerWidth;
 	}
    $(".canvas").width(size);
    $(".canvas").height(size);
@@ -96,6 +96,7 @@ $(document).ready(function(){
 		$(".option").each(function() {
 				$(this).remove();
 		});
+		optionsArray = [];
 		askForOptions(startWheel);
 	});
 });
